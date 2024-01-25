@@ -1,0 +1,7 @@
+streamlit
+python-docx
+langchain==0.1.3
+openai
+faiss-cpu==1.7.4
+PyPDF2==2.9.0
+tiktoken
