@@ -47,7 +47,14 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from PyPDF2 import PdfReader
 
-os.environ["OPENAI_API_KEY"] = ""  # OPENAI_API_KEY
+# os.environ["OPENAI_API_KEY"] = os.environ.get("API_KEY")  # OPENAI_API_KEY
+
+st.write("Secret Key", st.secrets["API_VALUE"])
+
+st.write(
+    "Has environment variables been set:",
+    os.environ["OPENAI_API_KEY"] == st.secrets["API_VALUE"],
+)
 
 
 def parse_docx(data):
