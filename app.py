@@ -47,7 +47,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from PyPDF2 import PdfReader
 
-os.environ["OPENAI_API_KEY"] = ""  # OPENAI_API_KEY
+os.environ["OPENAI_API_KEY"] = os.environ.get("API_KEY")  # OPENAI_API_KEY
 
 
 def parse_docx(data):
