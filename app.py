@@ -47,16 +47,10 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from PyPDF2 import PdfReader
 
-# os.environ["OPENAI_API_KEY"] = os.environ.get("API_KEY")  # OPENAI_API_KEY
+# os.environ["OPENAI_API_KEY"] = os.environ.get("API_KEY")
 
-# st.write("OPENAI_API_KEY", st.secrets["API_VALUE"])
-
-# st.write(
-    # "Has environment variables been set:",
-    # os.environ["OPENAI_API_KEY"] == st.secrets["API_VALUE"],
-# )
-
-API_KEY = st.secrets["API_KEY"]
+KEY = st.secrets["API_KEY"]
+st.write(KEY, st.secrets["API_KEY"])
 
 def parse_docx(data):
     """
@@ -160,7 +154,7 @@ def get_llm_chain(vectors):
         A conversational retrieval chain instance ready for processing user queries.
     """
     llm_chain = ConversationalRetrievalChain.from_llm(
-        llm=ChatOpenAI(model_name="gpt-4-0125-preview", openai_api_key=API_KEY, temperature=1.0),
+        llm=ChatOpenAI(model_name="gpt-4-0125-preview", temperature=1.0, openai_api_key=KEY),
         retriever=vectors.as_retriever(),
         memory=ConversationBufferMemory(
             memory_key="chat_history", return_messages=True
