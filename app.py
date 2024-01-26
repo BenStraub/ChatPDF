@@ -49,9 +49,6 @@ from PyPDF2 import PdfReader
 
 # os.environ["OPENAI_API_KEY"] = os.environ.get("API_KEY")
 
-# KEY = st.secrets["API_KEY"]
-# st.write(KEY, st.secrets["API_KEY"])
-
 def parse_docx(data):
     """
     Parse and extract text content from a DOCX file.
