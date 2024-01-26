@@ -154,7 +154,7 @@ def get_llm_chain(vectors):
         A conversational retrieval chain instance ready for processing user queries.
     """
     llm_chain = ConversationalRetrievalChain.from_llm(
-        llm=ChatOpenAI(model_name="gpt-4-0125-preview", temperature=1.0, openai_api_key=st.secrets["API_KEY"]),
+        llm=ChatOpenAI(model_name="gpt-4-0125-preview", temperature=1.0),
         retriever=vectors.as_retriever(),
         memory=ConversationBufferMemory(
             memory_key="chat_history", return_messages=True
